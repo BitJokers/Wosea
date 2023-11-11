@@ -25,12 +25,12 @@ class FloatWindow(QtWidgets.QWidget):
             self._endPos = e.position().toPoint() - self._startPos
             self.move(self.pos() + self._endPos)
             self.parent.move(self.pos() + self._endPos)
- 
+
     def mousePressEvent(self, e: QtGui.QMouseEvent):
     	if e.button() == QtCore.Qt.MouseButton.LeftButton:
             self._startPos = QtCore.QPoint(e.position().x(), e.position().y())
             self._tracking = True
- 
+
     def mouseReleaseEvent(self, e: QtGui.QMouseEvent):
         if e.button() == QtCore.Qt.MouseButton.LeftButton:
             self._tracking = False
@@ -49,7 +49,7 @@ class Window(QtWidgets.QWidget):
         self.con_button = QtWidgets.QPushButton("设置", self)
         self.text = QtWidgets.QLabel("⬇点击按钮生成", self, alignment=QtCore.Qt.AlignmentFlag.AlignCenter)
         self.zoom_out_button = QtWidgets.QPushButton("缩小", self)
-        
+
         self.layout = QtWidgets.QVBoxLayout(self)
         self.layout.addWidget(self.text)
         self.layout.addWidget(self.button)
@@ -65,7 +65,7 @@ class Window(QtWidgets.QWidget):
     @QtCore.Slot()
     def gen_num(self):
         self.text.setText(str(random.randint(self.start,self.end)))
-    
+
     @QtCore.Slot()
     def get_scope(self):
         while True:
@@ -88,12 +88,12 @@ class Window(QtWidgets.QWidget):
             self._endPos = e.position().toPoint() - self._startPos
             self.move(self.pos() + self._endPos)
             self.child.move(self.pos() + self._endPos)
- 
+
     def mousePressEvent(self, e: QtGui.QMouseEvent):
     	if e.button() == QtCore.Qt.MouseButton.LeftButton:
             self._startPos = QtCore.QPoint(e.position().x(), e.position().y())
             self._tracking = True
- 
+
     def mouseReleaseEvent(self, e: QtGui.QMouseEvent):
         if e.button() == QtCore.Qt.MouseButton.LeftButton:
             self._tracking = False
@@ -105,7 +105,7 @@ minor = 0
 revision = 1
 
 def check_update() -> bool:
-    re_ver = requests.get("http://175.178.59.154/d/Guest/version.txt").text
+    re_ver = requests.get("***").text
     re_major, re_minor, re_revision = re_ver.split('.')
     if int(re_revision) > revision or int(re_minor) > minor or int(re_major) > major:
         os.execl("./update.exe","update.exe","")
