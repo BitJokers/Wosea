@@ -19,14 +19,14 @@ jobs:
         python_ver: '3.12'
         spec: 'src\main.py'
         requirements: '.\requirements.txt'
-        options: -w, -F src\main.py
+        options: -w, -F src/main.py, --name 'main.exe'
     - name: Build update.exe
       uses: sayyid5416/pyinstaller@v1.2.0
       with:
         python_ver: '3.12'
         spec: 'src\main.py'
         requirements: '.\requirements.txt'
-        options: -w, -F src\update.py
+        options: -w, -F src/update.py, --name 'update.exe'
     - name: Debug
       run: |
         pwd
