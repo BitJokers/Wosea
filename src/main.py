@@ -7,31 +7,38 @@ import os
 class FloatWindow(QtWidgets.QWidget):
     def __init__(self, parent):
         super().__init__()
+        # 用于保存主窗口
         self.parent = parent
-
+        # 组件创建及设置
         self.label = QtWidgets.QLabel("双击\n展开", self, alignment=QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label.setFont(QtGui.QFont("微软雅黑",15))
-
+        # 窗口布局
         self.layout = QtWidgets.QVBoxLayout(self)
         self.layout.addWidget(self.label)
-
+        # 设置窗口属性
+        # 窗口透明度
         self.setWindowOpacity(0.8)
+        # 窗口标志(始终欸与顶层,无边框,工具层)
         self.setWindowFlags(QtCore.Qt.WindowType.WindowStaysOnTopHint | QtCore.Qt.WindowType.FramelessWindowHint | QtCore.Qt.WindowType.Tool)
     def mouseDoubleClickEvent(self, event: QtGui.QMouseEvent):
+        """覆盖默认双击行为,双击时隐藏自己,显示主窗口."""
         self.parent.setVisible(True)
         self.setVisible(False)
     def mouseMoveEvent(self, e: QtGui.QMouseEvent):
-    	if self._tracking:
+        """重写鼠标移动事件"""
+        if self._tracking:
             self._endPos = e.position().toPoint() - self._startPos
             self.move(self.pos() + self._endPos)
             self.parent.move(self.pos() + self._endPos)
 
     def mousePressEvent(self, e: QtGui.QMouseEvent):
-    	if e.button() == QtCore.Qt.MouseButton.LeftButton:
+        """跟踪鼠标按住窗口,便于重写窗口拖动逻辑"""
+        if e.button() == QtCore.Qt.MouseButton.LeftButton:
             self._startPos = QtCore.QPoint(e.position().x(), e.position().y())
             self._tracking = True
 
     def mouseReleaseEvent(self, e: QtGui.QMouseEvent):
+        """鼠标松开事件"""
         if e.button() == QtCore.Qt.MouseButton.LeftButton:
             self._tracking = False
             self._startPos = None
