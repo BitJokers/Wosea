@@ -1,0 +1,72 @@
+name: Autorelease
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Install python
+      uses: actions/setup-python@v4.7.1
+      with:
+        python-version: '3.12'
+    - name: Build main.exe
+      uses: sayyid5416/pyinstaller@v1.2.0
+      with:
+        python_ver: '3.12'
+        requirements: '.\requirements.txt'
+        options: -w, -F src\main.py
+    - name: Build update.exe
+      uses: sayyid5416/pyinstaller@v1.2.0
+      with:
+        python_ver: '3.12'
+        requirements: '.\requirements.txt'
+        options: -w, -F src\update.py
+    - name: Debug
+      run: |
+        pwd
+        ls
+        tree
+    - name: Install NSIS
+      run: |
+        iwr -useb get.scoop.sh -outfile 'install.ps1'
+        .\install.ps1 -RunAsAdmin
+        scoop update
+        scoop bucket add extras
+        scoop install nsis
+    - name: Make installer File
+      run: |
+        makensis .\build.nsi
+    - name: Create Release
+      id: create_release
+      uses: ncipollo/release-action@v1.13.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ github.run_number }}
+        release_name: Release v${{ github.run_number }}
+        body: |
+          Autopush
+
+    - name: Upload Asset 1
+      id: upload-asset-1
+      uses: alexellis/upload-assets@0.4.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: .\  # 这里是 PyInstaller 生成的可执行文件
+        asset_name: main.exe
+
+    - name: Upload Asset 2
+      id: upload-asset-2
+      uses: alexellis/upload-assets@0.4.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: .\  # 安装包
+        asset_name: setup.exe
