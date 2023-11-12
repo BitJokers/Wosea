@@ -1,27 +1,33 @@
-; °²×°³ÌĞò³õÊ¼¶¨Òå³£Á¿
+; è¯¥è„šæœ¬ä½¿ç”¨ HM VNISEdit è„šæœ¬ç¼–è¾‘å™¨å‘å¯¼äº§ç”Ÿ
+
+; å®‰è£…ç¨‹åºåˆå§‹å®šä¹‰å¸¸é‡
 !define PRODUCT_NAME "SeewoTools"
 !define PRODUCT_VERSION "1.0.1"
-!define PRODUCT_PUBLISHER "Jaffrez"
-        @@ -10,44 +10,44 @@
+!define PRODUCT_PUBLISHER "Jaffrez and Bliod-Cook"
+!define PRODUCT_WEB_SITE "https://github.com/Jaffrez/seewo_tools"
+!define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\main.exe"
+!define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
+!define PRODUCT_UNINST_ROOT_KEY "HKLM"
+!define PRODUCT_STARTMENU_REGVAL "NSIS:StartMenuDir"
 
 SetCompressor lzma
 
-; ------ MUI ÏÖ´ú½çÃæ¶¨Òå (1.67 °æ±¾ÒÔÉÏ¼æÈİ) ------
+; ------ MUI ç°ä»£ç•Œé¢å®šä¹‰ (1.67 ç‰ˆæœ¬ä»¥ä¸Šå…¼å®¹) ------
 !include "MUI.nsh"
 
-; MUI Ô¤¶¨Òå³£Á¿
+; MUI é¢„å®šä¹‰å¸¸é‡
 !define MUI_ABORTWARNING
 !define MUI_ICON ".\icon.ico"
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 
-; »¶Ó­Ò³Ãæ
+; æ¬¢è¿é¡µé¢
 !insertmacro MUI_PAGE_WELCOME
-; Ğí¿ÉĞ­ÒéÒ³Ãæ
+; è®¸å¯åè®®é¡µé¢
 !define MUI_LICENSEPAGE_CHECKBOX
 !insertmacro MUI_PAGE_LICENSE ".\LICENSE"
-; °²×°Ä¿Â¼Ñ¡ÔñÒ³Ãæ
+; å®‰è£…ç›®å½•é€‰æ‹©é¡µé¢
 !insertmacro MUI_PAGE_DIRECTORY
-; ¿ªÊ¼²Ëµ¥ÉèÖÃÒ³Ãæ
+; å¼€å§‹èœå•è®¾ç½®é¡µé¢
 var ICONS_GROUP
 !define MUI_STARTMENUPAGE_NODISABLE
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER "SeewoTools"
@@ -29,53 +35,96 @@ var ICONS_GROUP
 !define MUI_STARTMENUPAGE_REGISTRY_KEY "${PRODUCT_UNINST_KEY}"
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "${PRODUCT_STARTMENU_REGVAL}"
 !insertmacro MUI_PAGE_STARTMENU Application $ICONS_GROUP
-; °²×°¹ı³ÌÒ³Ãæ
+; å®‰è£…è¿‡ç¨‹é¡µé¢
 !insertmacro MUI_PAGE_INSTFILES
-; °²×°Íê³ÉÒ³Ãæ
+; å®‰è£…å®Œæˆé¡µé¢
 !define MUI_FINISHPAGE_RUN "$INSTDIR\main.exe"
 !insertmacro MUI_PAGE_FINISH
 
-; °²×°Ğ¶ÔØ¹ı³ÌÒ³Ãæ
+; å®‰è£…å¸è½½è¿‡ç¨‹é¡µé¢
 !insertmacro MUI_UNPAGE_INSTFILES
 
-; °²×°½çÃæ°üº¬µÄÓïÑÔÉèÖÃ
+; å®‰è£…ç•Œé¢åŒ…å«çš„è¯­è¨€è®¾ç½®
 !insertmacro MUI_LANGUAGE "SimpChinese"
 
-; °²×°Ô¤ÊÍ·ÅÎÄ¼ş
+; å®‰è£…é¢„é‡Šæ”¾æ–‡ä»¶
 !insertmacro MUI_RESERVEFILE_INSTALLOPTIONS
-; ------ MUI ÏÖ´ú½çÃæ¶¨Òå½áÊø ------
+; ------ MUI ç°ä»£ç•Œé¢å®šä¹‰ç»“æŸ ------
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 OutFile "Setup.exe"
-	@@ -63,7 +63,7 @@ Section "MainSection" SEC01
+InstallDir "$PROGRAMFILES\SeewoTools"
+InstallDirRegKey HKLM "${PRODUCT_UNINST_KEY}" "UninstallString"
+ShowInstDetails show
+ShowUnInstDetails show
+BrandingText "SeewoTools 1.0.1"
+
+Section "MainSection" SEC01
+  SetOutPath "$INSTDIR"
+  SetOverwrite ifnewer
   File "main.exe"
   File "update.exe"
 
-; ´´½¨¿ªÊ¼²Ëµ¥¿ì½İ·½Ê½
+; åˆ›å»ºå¼€å§‹èœå•å¿«æ·æ–¹å¼
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
   CreateDirectory "$SMPROGRAMS\$ICONS_GROUP"
   CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\SeewoTools.lnk" "$INSTDIR\main.exe"
-	@@ -91,7 +91,7 @@ Section -Post
+  CreateShortCut "$DESKTOP\SeewoTools.lnk" "$INSTDIR\main.exe"
+  !insertmacro MUI_STARTMENU_WRITE_END
+SectionEnd
+
+Section -AdditionalIcons
+  !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
+  WriteIniStr "$INSTDIR\${PRODUCT_NAME}.url" "InternetShortcut" "URL" "${PRODUCT_WEB_SITE}"
+  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\Website.lnk" "$INSTDIR\${PRODUCT_NAME}.url"
+  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\Uninstall.lnk" "$INSTDIR\uninst.exe"
+  !insertmacro MUI_STARTMENU_WRITE_END
+SectionEnd
+
+Section -Post
+  WriteUninstaller "$INSTDIR\uninst.exe"
+  WriteRegStr HKLM "${PRODUCT_DIR_REGKEY}" "" "$INSTDIR\main.exe"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayName" "$(^Name)"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$INSTDIR\uninst.exe"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayIcon" "$INSTDIR\main.exe"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayVersion" "${PRODUCT_VERSION}"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLInfoAbout" "${PRODUCT_WEB_SITE}"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "Publisher" "${PRODUCT_PUBLISHER}"
 SectionEnd
 
 /******************************
- *  ÒÔÏÂÊÇ°²×°³ÌĞòµÄĞ¶ÔØ²¿·Ö  *
+ *  ä»¥ä¸‹æ˜¯å®‰è£…ç¨‹åºçš„å¸è½½éƒ¨åˆ†  *
  ******************************/
 
 Section Uninstall
-	@@ -115,15 +115,15 @@ Section Uninstall
+  !insertmacro MUI_STARTMENU_GETFOLDER "Application" $ICONS_GROUP
+  Delete "$INSTDIR\${PRODUCT_NAME}.url"
+  Delete "$INSTDIR\uninst.exe"
+  Delete "$INSTDIR\update.exe"
+  Delete "$INSTDIR\main.exe"
+
+  Delete "$SMPROGRAMS\$ICONS_GROUP\Uninstall.lnk"
+  Delete "$SMPROGRAMS\$ICONS_GROUP\Website.lnk"
+  Delete "$DESKTOP\SeewoTools.lnk"
+  Delete "$SMPROGRAMS\$ICONS_GROUP\SeewoTools.lnk"
+
+  RMDir "$SMPROGRAMS\$ICONS_GROUP"
+
+  RMDir "$INSTDIR"
+
+  DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
+  DeleteRegKey HKLM "${PRODUCT_DIR_REGKEY}"
   SetAutoClose true
 SectionEnd
 
-#-- ¸ù¾İ NSIS ½Å±¾±à¼­¹æÔò£¬ËùÓĞ Function Çø¶Î±ØĞë·ÅÖÃÔÚ Section Çø¶ÎÖ®ºó±àĞ´£¬ÒÔ±ÜÃâ°²×°³ÌĞò³öÏÖÎ´¿ÉÔ¤ÖªµÄÎÊÌâ¡£--#
+#-- æ ¹æ® NSIS è„šæœ¬ç¼–è¾‘è§„åˆ™ï¼Œæ‰€æœ‰ Function åŒºæ®µå¿…é¡»æ”¾ç½®åœ¨ Section åŒºæ®µä¹‹åç¼–å†™ï¼Œä»¥é¿å…å®‰è£…ç¨‹åºå‡ºç°æœªå¯é¢„çŸ¥çš„é—®é¢˜ã€‚--#
 
 Function un.onInit
-  MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "ÄúÈ·ÊµÒªÍêÈ«ÒÆ³ı $(^Name) £¬¼°ÆäËùÓĞµÄ×é¼ş£¿" IDYES +2
+  MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "æ‚¨ç¡®å®è¦å®Œå…¨ç§»é™¤ $(^Name) ï¼ŒåŠå…¶æ‰€æœ‰çš„ç»„ä»¶ï¼Ÿ" IDYES +2
   Abort
 FunctionEnd
 
 Function un.onUninstSuccess
   HideWindow
-  MessageBox MB_ICONINFORMATION|MB_OK "$(^Name) ÒÑ³É¹¦µØ´ÓÄúµÄ¼ÆËã»úÒÆ³ı¡£"
-
+  MessageBox MB_ICONINFORMATION|MB_OK "$(^Name) å·²æˆåŠŸåœ°ä»æ‚¨çš„è®¡ç®—æœºç§»é™¤ã€‚"
 FunctionEnd
