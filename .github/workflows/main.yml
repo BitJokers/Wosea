@@ -16,6 +16,10 @@ jobs:
           spec: 'src\main.py'
           requirements: '.\requirements.txt'
           options: --name "main",--onefile,--windowed
+      - name: Debug 1
+        run: |
+          pwd
+          ls dist
       - name: Build "update.exe"
         uses: sayyid5416/pyinstaller@v1.2.0
         with:
@@ -23,7 +27,7 @@ jobs:
           spec: 'src\update.py'
           requirements: '.\requirements.txt'
           options: --onefile,--windowed
-      - name: Debug
+      - name: Debug 2
         run: |
           pwd
           ls dist
