@@ -6,7 +6,7 @@
 
 ## Description
 **SeewoTools**是一个便于老师使用希沃白板用于上课的工具~~合集~~（也许以后会实现）。
-本项目又<a href="https://github.com/jaffrez">Jaffrez<a/>和<a href="https://github.com/Bliod-Cook">Bliod-Cook<a/>倾情制作。
+本项目又![Jaffrez](https://github.com/Jaffrez)和![Bliod-Cook](https://github.com/Bliod-Cook)倾情制作。
 ## About the project
 本项目使用PySide6和Pyinstaller构建。
 ## Quick Start
@@ -19,5 +19,5 @@ python -m pip install -r requirements.txt
 ```
 使用前按需要修改更新检查地址
 ## Contributor
-<a href="https://github.com/jaffrez">Jaffrez<a/>
+<a href="https://github.com/jaffrez">Jaffrez<a/><br/>
 <a href="https://github.com/Bliod-Cook">Bliod-Cook<a/>
