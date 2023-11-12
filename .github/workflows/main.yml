@@ -21,6 +21,7 @@ jobs:
     - name: Debug
       run: |
         ls
+        tree
     - name: Install NSIS
       run: |
         iwr -useb get.scoop.sh -outfile 'install.ps1'
