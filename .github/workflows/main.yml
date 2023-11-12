@@ -26,7 +26,6 @@ jobs:
       - name: Debug
         run: |
           pwd
-          ls
           ls dist
       - name: Build "Setup.exe"
         uses: Minionguyjpro/Inno-Setup-Action@v1.0.0
