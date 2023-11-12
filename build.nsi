@@ -24,7 +24,7 @@ SetCompressor lzma
 !insertmacro MUI_PAGE_WELCOME
 ; 许可协议页面
 !define MUI_LICENSEPAGE_CHECKBOX
-!insertmacro MUI_PAGE_LICENSE "$INSTDIR\LICENSE"
+!insertmacro MUI_PAGE_LICENSE "./LICENSE"
 ; 安装目录选择页面
 !insertmacro MUI_PAGE_DIRECTORY
 ; 开始菜单设置页面
