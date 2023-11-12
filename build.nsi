@@ -17,14 +17,14 @@ SetCompressor lzma
 
 ; MUI 预定义常量
 !define MUI_ABORTWARNING
-!define MUI_ICON "$INSTDIR\icon.ico"
+!define MUI_ICON "./icon.ico"
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 
 ; 欢迎页面
 !insertmacro MUI_PAGE_WELCOME
 ; 许可协议页面
 !define MUI_LICENSEPAGE_CHECKBOX
-!insertmacro MUI_PAGE_LICENSE "$INSTDIR\LICENSE"
+!insertmacro MUI_PAGE_LICENSE "./LICENSE"
 ; 安装目录选择页面
 !insertmacro MUI_PAGE_DIRECTORY
 ; 开始菜单设置页面
