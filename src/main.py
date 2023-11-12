@@ -125,7 +125,11 @@ revision = 1
 
 def check_update() -> bool:
     # 对比版本号检查是否需要更新
-    re_ver = requests.get("https://gh.akass.cn/Jaffrez/seewo_tools/master/update_server/version.txt").text
+    request = requests.get("https://gh.akass.cn/Jaffrez/seewo_tools/master/update_server/version.txt")
+    if not request.status_code == 200:
+        QtWidgets.QMessageBox(None,"更新失败", "更新失败")
+        return
+    re_ver = request.text
     re_major, re_minor, re_revision = re_ver.split('.')
     if int(re_revision) > revision or int(re_minor) > minor or int(re_major) > major:
         os.execl("./update.exe","update.exe","")
