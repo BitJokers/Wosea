@@ -2,6 +2,7 @@
 <p align="center">
 <img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" >
 <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat">
+<img alt="GitHub" src="https://img.shields.io/github/license/jaffrez/seewo_tools"/>
 <p/>
 
 ## Description
