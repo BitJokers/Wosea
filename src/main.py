@@ -112,7 +112,7 @@ minor = 0
 revision = 1
 
 def check_update() -> bool:
-    re_ver = requests.get("***").text
+    re_ver = requests.get("https://gh.akass.cn/Jaffrez/seewo_tools/master/update_server/version.txt").text
     re_major, re_minor, re_revision = re_ver.split('.')
     if int(re_revision) > revision or int(re_minor) > minor or int(re_major) > major:
         os.execl("./update.exe","update.exe","")
