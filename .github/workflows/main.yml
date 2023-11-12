@@ -20,6 +20,7 @@ jobs:
         run: |
           pwd
           ls dist
+          mv ./dist/main.exe .
       - name: Build "update.exe"
         uses: sayyid5416/pyinstaller@v1.2.0
         with:
@@ -31,6 +32,7 @@ jobs:
         run: |
           pwd
           ls dist
+          mv ./dist/update.exe .
       - name: Move files
         run: |
           mv ./dist/* .
