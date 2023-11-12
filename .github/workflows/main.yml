@@ -17,16 +17,16 @@ jobs:
       uses: sayyid5416/pyinstaller@v1.2.0
       with:
         python_ver: '3.12'
-        spec: ''
+        spec: 'src\main.py'
         requirements: '.\requirements.txt'
-        options: -w, -F src/main.py, --name 'main.exe'
+        options: --name 'main.exe', --onefile, --windowed
     - name: Build update.exe
       uses: sayyid5416/pyinstaller@v1.2.0
       with:
         python_ver: '3.12'
-        spec: ''
+        spec: 'src\update.py'
         requirements: '.\requirements.txt'
-        options: -w, -F src/update.py, --name 'update.exe'
+        options: --name 'update.exe', --onefile, --windowed
     - name: Debug
       run: |
         pwd
