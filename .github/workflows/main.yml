@@ -17,12 +17,14 @@ jobs:
       uses: sayyid5416/pyinstaller@v1.2.0
       with:
         python_ver: '3.12'
+        spec: './'
         requirements: '.\requirements.txt'
         options: -w, -F src\main.py
     - name: Build update.exe
       uses: sayyid5416/pyinstaller@v1.2.0
       with:
         python_ver: '3.12'
+        spec: './'
         requirements: '.\requirements.txt'
         options: -w, -F src\update.py
     - name: Debug
