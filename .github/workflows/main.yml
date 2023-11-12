@@ -15,14 +15,14 @@ jobs:
           python_ver: '3.12'
           spec: 'src\main.py'
           requirements: '.\requirements.txt'
-          options: --name "main.exe",--onefile,--windowed
+          options: --onefile,--windowed
       - name: Build "update.exe"
         uses: sayyid5416/pyinstaller@v1.2.0
         with:
           python_ver: '3.12'
           spec: 'src\update.py'
           requirements: '.\requirements.txt'
-          options: --name "update.exe",--onefile,--windowed
+          options: --onefile,--windowed
       - name: Debug
         run: |
           pwd
