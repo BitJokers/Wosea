@@ -23,6 +23,9 @@ jobs:
         spec: 'src\update.py'
         requirements: '.\requirements.txt'
         options: --name 'update.exe', --windowed,-F src/update.py
+    - name: Debug
+      run: |
+        pwd
     - name: Install NSIS
       run: |
         iwr -useb get.scoop.sh -outfile 'install.ps1'
