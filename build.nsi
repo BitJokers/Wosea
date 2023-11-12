@@ -62,8 +62,8 @@ BrandingText "SeewoTools 1.0.1"
 Section "MainSection" SEC01
   SetOutPath "$INSTDIR"
   SetOverwrite ifnewer
-  File "main.exe"
-  File "update.exe"
+  File "$INSTDIR\main.exe"
+  File "$INSTDIR\main.exe"
 
 ; 创建开始菜单快捷方式
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
