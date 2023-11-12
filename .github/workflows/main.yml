@@ -16,11 +16,10 @@ jobs:
           spec: 'src\main.py'
           requirements: '.\requirements.txt'
           options: --name "main",--onefile,--windowed
-      - name: Debug 1
+      - name: Move file 1
         run: |
-          pwd
-          ls dist
-          mv ./dist/main.exe .
+          mkdir output
+          mv .\dist\main.exe .\output\
       - name: Build "update.exe"
         uses: sayyid5416/pyinstaller@v1.2.0
         with:
@@ -28,14 +27,9 @@ jobs:
           spec: 'src\update.py'
           requirements: '.\requirements.txt'
           options: --onefile,--windowed
-      - name: Debug 2
+      - name: Move file 2
         run: |
-          pwd
-          ls dist
-          mv ./dist/update.exe .
-      - name: Move files
-        run: |
-          mv ./dist/* .
+          mv .\dist\update.exe .\output
       - name: Build "Setup.exe"
         uses: Minionguyjpro/Inno-Setup-Action@v1.0.0
         with:

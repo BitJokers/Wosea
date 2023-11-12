@@ -37,8 +37,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "main.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "update.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "main.exe"; DestDir: "{app}\output\"; Flags: ignoreversion
+Source: "update.exe"; DestDir: "{app}\output\"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
