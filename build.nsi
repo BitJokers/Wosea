@@ -17,14 +17,14 @@ SetCompressor lzma
 
 ; MUI 预定义常量
 !define MUI_ABORTWARNING
-!define MUI_ICON ".\icon.ico"
+!define MUI_ICON "$INSTDIR\icon.ico"
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 
 ; 欢迎页面
 !insertmacro MUI_PAGE_WELCOME
 ; 许可协议页面
 !define MUI_LICENSEPAGE_CHECKBOX
-!insertmacro MUI_PAGE_LICENSE ".\LICENSE"
+!insertmacro MUI_PAGE_LICENSE "$INSTDIR\LICENSE"
 ; 安装目录选择页面
 !insertmacro MUI_PAGE_DIRECTORY
 ; 开始菜单设置页面
@@ -62,8 +62,8 @@ BrandingText "SeewoTools 1.0.1"
 Section "MainSection" SEC01
   SetOutPath "$./"
   SetOverwrite ifnewer
-  File "main.exe"
-  File "update.exe"
+  File "$INSTDIR\main.exe"
+  File "$INSTDIR\main.exe"
 
 ; 创建开始菜单快捷方式
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
