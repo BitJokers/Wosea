@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Create Executable
-      uses: sayyid5416/pyinstaller@v1
+      uses: sayyid5416/pyinstaller@v1.2.0
       with:
         python_ver: '3.10'
         spec: 'src/main.py'
@@ -19,7 +19,7 @@ jobs:
         upload_exe_with_name: 'main'
         options: --windowed,
     - name: Install NSIS
-      uses: repolevedavaj/install-nsis@v1
+      uses: repolevedavaj/install-nsis@v1.0.0
       with:
         nsis-version: 3.09
     - name: Make installer File
@@ -27,7 +27,7 @@ jobs:
         makensis .\build.nsi
     - name: Create Release
       id: create_release
-      uses: actions/create-release@v1
+      uses: actions/create-release@v1.13.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -38,7 +38,7 @@ jobs:
 
     - name: Upload Asset 1
       id: upload-asset-1
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@v0.4.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -49,7 +49,7 @@ jobs:
 
     - name: Upload Asset 2
       id: upload-asset-2
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@v0.4.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
