@@ -2,7 +2,7 @@
 !define PRODUCT_NAME "SeewoTools"
 !define PRODUCT_VERSION "1.0.1"
 !define PRODUCT_PUBLISHER "Jaffrez"
-	@@ -10,44 +10,44 @@
+        @@ -10,44 +10,44 @@
 
 SetCompressor lzma
 
