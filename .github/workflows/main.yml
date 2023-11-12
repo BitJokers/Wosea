@@ -17,7 +17,7 @@ jobs:
       uses: sayyid5416/pyinstaller@v1.2.0
       with:
         python_ver: '3.12'
-        spec: 'src/main.py'
+        spec: 'src\main.py'
         requirements: '.\requirements.txt'
         options: -w, -F src\main.py
     - name: Build update.exe
