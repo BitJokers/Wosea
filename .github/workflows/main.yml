@@ -15,14 +15,14 @@ jobs:
         python_ver: '3.10'
         spec: 'src\main.py'
         requirements: '.\requirements.txt'
-        options: --name 'main.exe', --windowed, -F src/main.py
+        options: --name 'main', --windowed, -F
     - name: Create Update.exe
       uses: sayyid5416/pyinstaller@v1.2.0
       with:
         python_ver: '3.10'
         spec: 'src\update.py'
         requirements: '.\requirements.txt'
-        options: --name 'update.exe', --windowed,-F src/update.py
+        options: --name 'update', --windowed, -F
     - name: Debug
       run: |
         pwd
