@@ -17,6 +17,13 @@ jobs:
         spec: 'src\main.py'
         requirements: '.\requirements.txt'
         options: --name 'main.exe', --windowed,
+    - name: Create Update.exe
+      uses: sayyid5416/pyinstaller@v1.2.0
+      with:
+        python_ver: '3.10'
+        spec: 'src\update.py'
+        requirements: '.\requirements.txt'
+        options: --name 'update.exe', --windowed,
     - name: Install NSIS
       run: |
         iwr -useb get.scoop.sh -outfile 'install.ps1'
