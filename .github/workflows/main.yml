@@ -15,7 +15,7 @@ jobs:
           python_ver: '3.12'
           spec: 'src\main.py'
           requirements: '.\requirements.txt'
-          options: --onefile,--windowed
+          options: --name "main",--onefile,--windowed
       - name: Build "update.exe"
         uses: sayyid5416/pyinstaller@v1.2.0
         with:
@@ -27,6 +27,9 @@ jobs:
         run: |
           pwd
           ls dist
+      - name: Move files
+        run: |
+          mv ./dist/* .
       - name: Build "Setup.exe"
         uses: Minionguyjpro/Inno-Setup-Action@v1.0.0
         with:
