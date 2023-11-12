@@ -38,7 +38,7 @@ var ICONS_GROUP
 ; 安装过程页面
 !insertmacro MUI_PAGE_INSTFILES
 ; 安装完成页面
-!define MUI_FINISHPAGE_RUN "$INSTDIR\main.exe"
+!define MUI_FINISHPAGE_RUN "main.exe"
 !insertmacro MUI_PAGE_FINISH
 
 ; 安装卸载过程页面
@@ -62,8 +62,8 @@ BrandingText "SeewoTools 1.0.1"
 Section "MainSection" SEC01
   SetOutPath "$./"
   SetOverwrite ifnewer
-  File "$INSTDIR\main.exe"
-  File "$INSTDIR\main.exe"
+  File ".\dist\main.exe"
+  File ".\dist\main.exe"
 
 ; 创建开始菜单快捷方式
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
