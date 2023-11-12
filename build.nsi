@@ -127,4 +127,5 @@ FunctionEnd
 Function un.onUninstSuccess
   HideWindow
   MessageBox MB_ICONINFORMATION|MB_OK "$(^Name) 已成功地从您的计算机移除。"
+
 FunctionEnd
