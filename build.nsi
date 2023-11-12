@@ -1,4 +1,4 @@
-; °²×°³ÌÐò³õÊ¼¶¨Òå³£Á¿
+; ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½å³£ï¿½ï¿½
 !define PRODUCT_NAME "SeewoTools"
 !define PRODUCT_VERSION "1.0.1"
 !define PRODUCT_PUBLISHER "Jaffrez"
@@ -10,22 +10,22 @@
 
 SetCompressor lzma
 
-; ------ MUI ÏÖ´ú½çÃæ¶¨Òå (1.67 °æ±¾ÒÔÉÏ¼æÈÝ) ------
+; ------ MUI ï¿½Ö´ï¿½ï¿½ï¿½ï¿½æ¶¨ï¿½ï¿½ (1.67 ï¿½æ±¾ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½) ------
 !include "MUI.nsh"
 
-; MUI Ô¤¶¨Òå³£Á¿
+; MUI Ô¤ï¿½ï¿½ï¿½å³£ï¿½ï¿½
 !define MUI_ABORTWARNING
-!define MUI_ICON "E:\code\seewo_tools\build_tool\icon.ico"
+!define MUI_ICON ".\icon.ico"
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 
-; »¶Ó­Ò³Ãæ
+; ï¿½ï¿½Ó­Ò³ï¿½ï¿½
 !insertmacro MUI_PAGE_WELCOME
-; Ðí¿ÉÐ­ÒéÒ³Ãæ
+; ï¿½ï¿½ï¿½ï¿½Ð­ï¿½ï¿½Ò³ï¿½ï¿½
 !define MUI_LICENSEPAGE_CHECKBOX
-!insertmacro MUI_PAGE_LICENSE "E:\code\seewo_tools\LICENSE"
-; °²×°Ä¿Â¼Ñ¡ÔñÒ³Ãæ
+!insertmacro MUI_PAGE_LICENSE ".\LICENSE"
+; ï¿½ï¿½×°Ä¿Â¼Ñ¡ï¿½ï¿½Ò³ï¿½ï¿½
 !insertmacro MUI_PAGE_DIRECTORY
-; ¿ªÊ¼²Ëµ¥ÉèÖÃÒ³Ãæ
+; ï¿½ï¿½Ê¼ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½
 var ICONS_GROUP
 !define MUI_STARTMENUPAGE_NODISABLE
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER "SeewoTools"
@@ -33,21 +33,21 @@ var ICONS_GROUP
 !define MUI_STARTMENUPAGE_REGISTRY_KEY "${PRODUCT_UNINST_KEY}"
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "${PRODUCT_STARTMENU_REGVAL}"
 !insertmacro MUI_PAGE_STARTMENU Application $ICONS_GROUP
-; °²×°¹ý³ÌÒ³Ãæ
+; ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½
 !insertmacro MUI_PAGE_INSTFILES
-; °²×°Íê³ÉÒ³Ãæ
+; ï¿½ï¿½×°ï¿½ï¿½ï¿½Ò³ï¿½ï¿½
 !define MUI_FINISHPAGE_RUN "$INSTDIR\main.exe"
 !insertmacro MUI_PAGE_FINISH
 
-; °²×°Ð¶ÔØ¹ý³ÌÒ³Ãæ
+; ï¿½ï¿½×°Ð¶ï¿½Ø¹ï¿½ï¿½ï¿½Ò³ï¿½ï¿½
 !insertmacro MUI_UNPAGE_INSTFILES
 
-; °²×°½çÃæ°üº¬µÄÓïÑÔÉèÖÃ
+; ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 !insertmacro MUI_LANGUAGE "SimpChinese"
 
-; °²×°Ô¤ÊÍ·ÅÎÄ¼þ
+; ï¿½ï¿½×°Ô¤ï¿½Í·ï¿½ï¿½Ä¼ï¿½
 !insertmacro MUI_RESERVEFILE_INSTALLOPTIONS
-; ------ MUI ÏÖ´ú½çÃæ¶¨Òå½áÊø ------
+; ------ MUI ï¿½Ö´ï¿½ï¿½ï¿½ï¿½æ¶¨ï¿½ï¿½ï¿½ï¿½ï¿½ ------
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 OutFile "Setup.exe"
@@ -63,7 +63,7 @@ Section "MainSection" SEC01
   File "main.exe"
   File "update.exe"
 
-; ´´½¨¿ªÊ¼²Ëµ¥¿ì½Ý·½Ê½
+; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ëµï¿½ï¿½ï¿½Ý·ï¿½Ê½
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
   CreateDirectory "$SMPROGRAMS\$ICONS_GROUP"
   CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\SeewoTools.lnk" "$INSTDIR\main.exe"
@@ -91,7 +91,7 @@ Section -Post
 SectionEnd
 
 /******************************
- *  ÒÔÏÂÊÇ°²×°³ÌÐòµÄÐ¶ÔØ²¿·Ö  *
+ *  ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ø²ï¿½ï¿½ï¿½  *
  ******************************/
 
 Section Uninstall
@@ -115,15 +115,15 @@ Section Uninstall
   SetAutoClose true
 SectionEnd
 
-#-- ¸ù¾Ý NSIS ½Å±¾±à¼­¹æÔò£¬ËùÓÐ Function Çø¶Î±ØÐë·ÅÖÃÔÚ Section Çø¶ÎÖ®ºó±àÐ´£¬ÒÔ±ÜÃâ°²×°³ÌÐò³öÏÖÎ´¿ÉÔ¤ÖªµÄÎÊÌâ¡£--#
+#-- ï¿½ï¿½ï¿½ï¿½ NSIS ï¿½Å±ï¿½ï¿½à¼­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Function ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Section ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ô±ï¿½ï¿½â°²×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½Ô¤Öªï¿½ï¿½ï¿½ï¿½ï¿½â¡£--#
 
 Function un.onInit
-  MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "ÄúÈ·ÊµÒªÍêÈ«ÒÆ³ý $(^Name) £¬¼°ÆäËùÓÐµÄ×é¼þ£¿" IDYES +2
+  MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "ï¿½ï¿½È·ÊµÒªï¿½ï¿½È«ï¿½Æ³ï¿½ $(^Name) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" IDYES +2
   Abort
 FunctionEnd
 
 Function un.onUninstSuccess
   HideWindow
-  MessageBox MB_ICONINFORMATION|MB_OK "$(^Name) ÒÑ³É¹¦µØ´ÓÄúµÄ¼ÆËã»úÒÆ³ý¡£"
+  MessageBox MB_ICONINFORMATION|MB_OK "$(^Name) ï¿½Ñ³É¹ï¿½ï¿½Ø´ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½"
 
 FunctionEnd
