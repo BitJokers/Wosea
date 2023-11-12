@@ -18,8 +18,8 @@ jobs:
         ls
         tree
         pip3 install pyinstaller
-        pyinstaller -F -w .\src\main.py
-        pyinstaller -F -w .\src\update.py
+        pyinstaller -F -w ..\src\main.py
+        pyinstaller -F -w ..\src\update.py
     - name: Debug
       run: |
         ls
