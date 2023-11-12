@@ -60,7 +60,7 @@ ShowUnInstDetails show
 BrandingText "SeewoTools 1.0.1"
 
 Section "MainSection" SEC01
-  SetOutPath "$./"
+  SetOutPath "$INSTDIR"
   SetOverwrite ifnewer
   File ".\dist\main.exe"
   File ".\dist\main.exe"
