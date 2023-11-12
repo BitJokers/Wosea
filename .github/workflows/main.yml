@@ -15,7 +15,6 @@ jobs:
         python_ver: '3.10'
         spec: 'src\main.py'
         requirements: '.\requirements.txt'
-        exe_path: '.\'
         options: --name 'main.exe', --windowed, -F src/main.py
     - name: Create Update.exe
       uses: sayyid5416/pyinstaller@v1.2.0
@@ -23,7 +22,6 @@ jobs:
         python_ver: '3.10'
         spec: 'src\update.py'
         requirements: '.\requirements.txt'
-        exe_path: '.\'
         options: --name 'update.exe', --windowed,-F src/update.py
     - name: Install NSIS
       run: |
