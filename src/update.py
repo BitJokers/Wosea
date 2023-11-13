@@ -3,11 +3,15 @@ import os
 from PySide6 import QtCore, QtWidgets,QtGui
 
 if __name__ == "__main__":
-    req = requests.get("https://github.cooluc.com/https://github.com/Jaffrez\
+    try:
+        req = requests.get("https://github.cooluc.com/https://github.com/Jaffrez\
                             /seewo_tools/releases/download/master/main.exe")
-    if not req.status_code == 200:
+        # 检验状态码
+        if not req.status_code == 200:
+            raise TimeoutError
+    except:
         QtWidgets.QMessageBox(None,"更新失败", "更新失败")
-        os.execl("./main.exe", "main.exe","")
+        os.execl("./main.exe", "main.exe","") # 覆盖原进程
     file = open("./main.exe", 'wb')
     file.write()
     file.close()

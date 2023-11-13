@@ -125,8 +125,12 @@ revision = 1
 
 def check_update() -> bool:
     # 对比版本号检查是否需要更新
-    request = requests.get("https://gh.akass.cn/Jaffrez/seewo_tools/master/update_server/version.txt")
-    if not request.status_code == 200:
+    try:
+        request = requests.get("https://gh.akass.cn/Jaffrez/seewo_tools/master/update_server/version.txt")
+        # 检测状态码
+        if not request.status_code == 200:
+            raise KeyError
+    except:
         QtWidgets.QMessageBox(None,"更新失败", "更新失败")
         return
     re_ver = request.text
