@@ -4,7 +4,7 @@
 <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat">
 <img alt="GitHub" src="https://img.shields.io/github/license/jaffrez/Wosea"/>
 <p/>
-<img src="assert/images/banner.png" alt="Wosea" width="640" height="320" />
+<img src="assert/images/banner.png" alt="Wosea" width="640" height="320" align="center"/>
 
 **Wosea**是一个希沃白板的工具箱,主要还是用于整活以及便于老师上课使用.
 
