@@ -40,5 +40,7 @@ TODO:
 TODO:
 ### 贡献
 欢迎对此项目进行贡献!你可以打开一个[issue](https://github.com/Jaffrez/Wosea/issues)或者提交PRs.
+### 致谢
+本项目由[Jaffrez](https://github.com/jaffrez/)和[Bliod-Cook](https://github.com/Bliod-Cook/)开发.十分感谢你们的付出.
 ### 许可证
 此项目在[MIT](LICENSE)协议下开源.
