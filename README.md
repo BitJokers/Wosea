@@ -31,7 +31,7 @@ pythonw main.py
 ```
 ### 更新
 此项目自带更新模块,但是你应当保证网络畅通以连接github进行更新.<br/>
-当然,你也可以自建更新服务器,具体可以参照[docs](docs/README.md)操作.
+当然,你也可以自建更新服务器,具体可以参照[docs](docs/update_server/README.md)操作.
 ### 使用
 TODO:
 ### 添加功能
