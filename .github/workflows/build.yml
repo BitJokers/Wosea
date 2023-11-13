@@ -25,5 +25,6 @@ jobs:
             - name: Build exe
               run: |
                 pyinstaller -F --onefile --windowed src\main.py src\update.py
-                ls
+                ls dist
+                tree
                 pwd
