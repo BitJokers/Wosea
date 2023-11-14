@@ -4,8 +4,8 @@
 <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat">
 <img alt="GitHub" src="https://img.shields.io/github/license/jaffrez/wosea"/>
 <p/>
-<img src="https://socialify.git.ci/Jaffrez/Wosea/image?description=1&descriptionEditable=Wosea%E6%98%AF%E4%B8%80%E4%B8%AA%E5%B8%8C%E6%B2%83%E7%99%BD%E6%9D%BF%E7%9A%84%E5%B7%A5%E5%85%B7%E7%AE%B1%2C%E4%B8%BB%E8%A6%81%E8%BF%98%E6%98%AF%E7%94%A8%E4%BA%8E%E6%95%B4%E6%B4%BB%E4%BB%A5%E5%8F%8A%E4%BE%BF%E4%BA%8E%E8%80%81%E5%B8%88%E4%B8%8A%E8%AF%BE%E4%BD%BF%E7%94%A8.&font=Inter&forks=1&issues=1&language=1&logo=https%3A%2F%2Fraw.githubusercontent.com%2FJaffrez%2FWosea_assert%2Fmaster%2Ficon.svg&name=1&owner=1&pattern=Formal%20Invitation&pulls=1&stargazers=1&theme=Light" alt="Wosea" width="640" height="320" />
 
+![Wosea](https://socialify.git.ci/Jaffrez/Wosea/image?description=1&descriptionEditable=Wosea%E6%98%AF%E4%B8%80%E4%B8%AA%E5%B8%8C%E6%B2%83%E7%99%BD%E6%9D%BF%E7%9A%84%E5%B7%A5%E5%85%B7%E7%AE%B1%2C%E4%B8%BB%E8%A6%81%E8%BF%98%E6%98%AF%E7%94%A8%E4%BA%8E%E6%95%B4%E6%B4%BB%E4%BB%A5%E5%8F%8A%E4%BE%BF%E4%BA%8E%E8%80%81%E5%B8%88%E4%B8%8A%E8%AF%BE%E4%BD%BF%E7%94%A8.&font=Inter&forks=1&issues=1&language=1&logo=https%3A%2F%2Fraw.githubusercontent.com%2FJaffrez%2FWosea_assert%2Fmaster%2Ficon.svg&name=1&owner=1&pattern=Formal%20Invitation&pulls=1&stargazers=1&theme=Light)
 **Wosea**是一个希沃白板的工具箱,主要还是用于整活以及便于老师上课使用.
 
 ## 目录
