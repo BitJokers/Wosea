@@ -1,0 +1,32 @@
+name: Build and Release
+
+on:
+    push:
+        branches: ['dev']
+
+jobs:
+    build:
+        runs-on: windows-latest
+        
+        steps:
+            - uses: actions/checkout@v4.1.1
+              with:
+                  ref: 'dev'
+
+            - name: Setup Python
+              uses: actions/setup-python@v4.7.1
+              with:
+                python-version: '3.11'
+
+            - name: Build exe
+              run: |
+                pip install -U nuitka
+                nuitka --windows-disable-console src\main.py
+                nuitka --windows-disable-console src\modules\Update\update.py
+                
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v3
+              with:
+                path: |
+                    .\main.exe
+                    .\update.exe
