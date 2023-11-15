@@ -22,9 +22,9 @@ jobs:
               run: |
                 pip install -U nuitka
                 pip install -r requirements.txt
-                nuitka --windows-disable-console --standalone --enable-plugins=pyside6 --main=src\main.py --main=src\modules\Update\update.py --output-dir=output
-                nuitka --windows-disable-console --standalone --enable-plugins=pyside6 src\main.py
-                nuitka --windows-disable-console --standalone --enable-plugins=pyside6 src\modules\Update\update.py
+                nuitka3 --windows-disable-console --standalone --enable-plugins=pyside6 --main=src\main.py --main=src\modules\Update\update.py --output-dir=output
+                nuitka3 --windows-disable-console --standalone --enable-plugins=pyside6 src\main.py
+                nuitka3 --windows-disable-console --standalone --enable-plugins=pyside6 src\modules\Update\update.py
                 rm output\main.dist\main.exe
                 cp main.dist\main.exe output\main.dist
                 cp update.dist\update.exe output\main.dist
@@ -35,4 +35,3 @@ jobs:
                 name: build
                 path: |
                     output\main.dist\
-                    
