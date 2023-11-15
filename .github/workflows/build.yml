@@ -21,9 +21,9 @@ jobs:
             - name: Build exe
               run: |
                 pip install -U nuitka
-                nuitka --windows-disable-console src\main.py
-                nuitka --windows-disable-console src\modules\Update\update.py
-                
+                nuitka --windows-disable-console --follow-imports src\main.py
+                nuitka --windows-disable-console --follow-imports src\modules\Update\update.py
+
             - name: Upload Artifact
               uses: actions/upload-artifact@v3
               with:
