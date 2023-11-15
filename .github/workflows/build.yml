@@ -21,6 +21,7 @@ jobs:
             - name: Build exe
               run: |
                 pip install -U nuitka
+                pip install -r requirements.txt
                 nuitka --windows-disable-console --follow-imports --enable-plugins=pyside6 src\main.py
                 nuitka --windows-disable-console --follow-imports --enable-plugins=pyside6 src\modules\Update\update.py
 
