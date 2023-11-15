@@ -22,12 +22,16 @@ jobs:
               run: |
                 pip install -U nuitka
                 pip install -r requirements.txt
-                nuitka --windows-disable-console --follow-imports --enable-plugins=pyside6 src\main.py
-                nuitka --windows-disable-console --follow-imports --enable-plugins=pyside6 src\modules\Update\update.py
+                nuitka --windows-disable-console --standalone --enable-plugins=pyside6 --main=src\main.py --main=src\modules\Update\update.py --output-dir=output
+                nuitka --windows-disable-console --standalone --enable-plugins=pyside6 src\main.py
+                nuitka --windows-disable-console --standalone --enable-plugins=pyside6 src\modules\Update\update.py
+                rm output\main.dist\main.exe
+                cp main.dist\main.exe output\main.dist
+                cp update.dist\update.exe output\main.dist
 
             - name: Upload Artifact
               uses: actions/upload-artifact@v3
               with:
+                name: build
                 path: |
-                    .\main.exe
-                    .\update.exe
+                    output\main.dist\
