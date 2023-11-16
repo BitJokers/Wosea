@@ -1,4 +1,4 @@
-name: Build
+name: CI
 
 on:
     workflow_dispatch:
@@ -8,9 +8,7 @@ on:
           required: true
           default: 'warning'
         tags:
-          description: 'Test scenario tags'  
-    push:
-        branches: ['dev']
+          description: 'Test scenario tags'
 
 jobs:
     build:
@@ -37,9 +35,5 @@ jobs:
                 cp main.dist\main.exe output\main.dist
                 cp update.dist\update.exe output\main.dist
 
-            - name: Upload Artifact
-              uses: actions/upload-artifact@v3
-              with:
-                name: build
-                path: |
-                    output\main.dist\
+            - name: GH Release
+              uses: softprops/action-gh-release@v0.1.15
