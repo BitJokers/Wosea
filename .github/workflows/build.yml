@@ -1,6 +1,14 @@
 name: Build and Release
 
 on:
+    workflow_dispatch:
+      inputs:
+        logLevel:
+          description: 'Log level'     
+          required: true
+          default: 'warning'
+        tags:
+          description: 'Test scenario tags'  
     push:
         branches: ['dev']
 
@@ -22,9 +30,9 @@ jobs:
               run: |
                 pip install -U nuitka
                 pip install -r requirements.txt
-                nuitka3 --windows-disable-console --standalone --enable-plugins=pyside6 --main=src\main.py --main=src\modules\Update\update.py --output-dir=output
-                nuitka3 --windows-disable-console --standalone --enable-plugins=pyside6 src\main.py
-                nuitka3 --windows-disable-console --standalone --enable-plugins=pyside6 src\modules\Update\update.py
+                nuitka3 --windows-disable-console --standalone --enable-plugins=pyside6 --assume-yes-for-downloads --main=src\main.py --main=src\modules\Update\update.py --output-dir=output
+                nuitka3 --windows-disable-console --standalone --enable-plugins=pyside6 --assume-yes-for-downloads src\main.py
+                nuitka3 --windows-disable-console --standalone --enable-plugins=pyside6 --assume-yes-for-downloads src\modules\Update\update.py
                 rm output\main.dist\main.exe
                 cp main.dist\main.exe output\main.dist
                 cp update.dist\update.exe output\main.dist
