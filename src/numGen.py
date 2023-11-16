@@ -81,18 +81,15 @@ class GenNumWindow(QtWidgets.QWidget):
     @QtCore.Slot()
     def get_scope(self):
         """'设置'按钮的槽函数"""
-        while True:
-            # 获取起始值直到成功
-            start, ok = QtWidgets.QInputDialog.getInt(self, "配置", "请输入起始数字: ", self.start)
-            if ok:
-                self.start = start
-                break
-        while True:
-            # 获取结束值直到成功
-            end,ok = QtWidgets.QInputDialog.getInt(self, "配置", "请输入结束数字: ", self.end)
-            if ok:
-                self.end = end
-                break
+        # 获取起始值直到成功
+        start, ok = QtWidgets.QInputDialog.getInt(self, "配置", "请输入起始数字: ", self.start)
+        if ok:
+            self.start = start
+        # 获取结束值直到成功
+        end,ok = QtWidgets.QInputDialog.getInt(self, "配置", "请输入结束数字: ", self.end)
+        if ok:
+            self.end = end
+
     @QtCore.Slot()
     def close(self):
         self.child.destroy()
