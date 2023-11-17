@@ -7,27 +7,28 @@ from mainWindow import Ui_MainWindow
 import numGen
 import closeEasiNote
 
-class aboutWindow(QtWidgets.QDialog):
+class aboutDialog(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
 
-        self.label = QtWidgets.QLabel("本软件由Jaffrez&Bloid-Cook制作", self, alignment=QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.closeButton = QtWidgets.QPushButton("关闭",self)
-        self.layout = QtWidgets.QVBoxLayout(self)
-        self.layout.addWidget(self.label)
-        self.layout.addWidget(self.closeButton)
+        self.setWindowTitle("关于")
 
-        self.closeButton.clicked.connect(self.close)
-    def close(self):
-        self.destroy()
+        self.buttonbox = QtWidgets.QDialogButtonBox(QtWidgets.QDialogButtonBox.StandardButton.Ok)
+        self.buttonbox.accepted.connect(self.accept)
+        self.layout = QtWidgets.QVBoxLayout()
+        self.layout.addWidget(QtWidgets.QLabel("本软件由Jaffrez & Bloid-Cook 开发"))
+        self.layout.addWidget(self.buttonbox)
+        self.setLayout(self.layout)
 
 def showAbout():
-    root = aboutWindow()
-    root.show()
+    dialog = aboutDialog()
+    dialog.exec()
+
 class MainWindow(QtWidgets.QMainWindow):
     def exit(self):
         self.destroy()
         sys.exit()
+
     def __init__(self):
         super().__init__()
 
@@ -36,8 +37,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.genNumButton.clicked.connect(numGen.start)
         self.ui.closeButton.clicked.connect(self.close)
-        self.ui.closeSeewoNoteButton.clicked.connect(closeEasiNote.closeEasiNote)
-        # FIXME： 修复关于页面无法打开
+        self.ui.closeSeewoNoteButton.clicked.\
+            connect(closeEasiNote.closeEasiNote)
         self.ui.aboutButton.clicked.connect(showAbout)
 
 
