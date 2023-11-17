@@ -27,7 +27,7 @@ git clone https://github.com/Jaffrez/Wosea.git
 # 安装依赖
 python -m pip install -r requirements.txt
 # 启动软件
-pythonw main.py
+pythonw src/main.py
 ```
 ### 更新
 此项目自带更新模块,但是你应当保证网络畅通以连接github进行更新.<br/>

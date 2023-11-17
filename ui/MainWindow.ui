@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>180</width>
+    <width>200</width>
     <height>275</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>180</width>
+    <width>200</width>
     <height>275</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>180</width>
+    <width>200</width>
     <height>275</height>
    </size>
   </property>
@@ -33,10 +33,10 @@
    <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="nameLabel">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>60</x>
       <y>10</y>
       <width>81</width>
       <height>16</height>
@@ -46,12 +46,12 @@
      <string>Wosea工具箱</string>
     </property>
    </widget>
-   <widget class="QGroupBox" name="groupBox">
+   <widget class="QGroupBox" name="buttonBox">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>30</y>
-      <width>161</width>
+      <width>181</width>
       <height>171</height>
      </rect>
     </property>
@@ -61,36 +61,36 @@
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>0</x>
        <y>20</y>
-       <width>141</width>
+       <width>181</width>
        <height>141</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QPushButton" name="pushButton_6">
+       <widget class="QPushButton" name="genNumButton">
         <property name="text">
          <string>学号生成</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_5">
+       <widget class="QPushButton" name="changeFlashImageButton">
         <property name="text">
          <string>闪屏图片修改</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_7">
+       <widget class="QPushButton" name="closeSeewoNoteButton">
         <property name="text">
          <string>关闭希沃白板</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_8">
+       <widget class="QPushButton" name="checkUpdateButton">
         <property name="text">
          <string>检查更新</string>
         </property>
@@ -99,12 +99,12 @@
      </layout>
     </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="settingButton">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>210</y>
-      <width>81</width>
+      <width>91</width>
       <height>24</height>
      </rect>
     </property>
@@ -112,12 +112,12 @@
      <string>设置</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="hideButton">
     <property name="geometry">
      <rect>
-      <x>94</x>
+      <x>100</x>
       <y>210</y>
-      <width>81</width>
+      <width>91</width>
       <height>24</height>
      </rect>
     </property>
@@ -125,12 +125,12 @@
      <string>隐藏至托盘</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="aboutButton">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>240</y>
-      <width>81</width>
+      <width>91</width>
       <height>24</height>
      </rect>
     </property>
@@ -138,12 +138,12 @@
      <string>关于</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="closeButton">
     <property name="geometry">
      <rect>
-      <x>94</x>
+      <x>100</x>
       <y>240</y>
-      <width>81</width>
+      <width>91</width>
       <height>24</height>
      </rect>
     </property>
