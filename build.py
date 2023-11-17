@@ -1,64 +1,64 @@
-# 这段代码由佛祖保佑可以运行
-
 import os
-dirs = ['.']
 
-# Envs
-# Folder
+path = '.'
+
 foldersStart = """<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
   <Fragment>
     <StandardDirectory Id="ProgramFiles6432Folder">
       <Directory Id="INSTALLFOLDER" Name="!(bind.Property.Manufacturer) !(bind.Property.ProductName)" />
 """
+
 foldersEnd = """    </StandardDirectory>
   </Fragment>
 </Wix>
 """
-# File
-def fileStart(x, i):
+
+def fileStart(x, file_path):
     return f"""<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
   <Fragment>
-    <ComponentGroup Id="{x}" Directory="{i}">
+    <ComponentGroup Id="{x}" Directory="INSTALLFOLDER\{file_path}">
       <Component>
 """
+
 fileEnd = """      </Component>
     </ComponentGroup>
   </Fragment>
 </Wix>"""
 
-# Package
-packageStart = """<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
-  <Package Name="Wosea" Manufacturer="Jaffrez and Bliod" Version="1.0.0.1" UpgradeCode="b62078cb-8244-47c6-8e1b-c7131bdeace7">
-    <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeError)" />
+folderswxs = foldersStart
+dirpaths = []
+num = []
 
-	  <MediaTemplate EmbedCab="yes"/>
-	  
-    <Feature Id="Main">
-"""
-packageEnd = """    </Feature>
-  </Package>
-</Wix>"""
-
-# Folder
-folders = foldersStart
-x = 1
-def adddir(subdirs, dirs):
-    dirs += subdirs
-for dir in dirs:
-    subdirs = [f'{dir}/{subdir}' for subdir in os.listdir(dir) if os.path.isdir(subdir)]
-    for i in subdirs:
-        temp = open(f'{x}.wxs', mode="w")
-        filelist = [os.path.join(i, file) for file in os.listdir(i) if os.path.isdir(file) == False]
-        i = i[2:].replace('/', '\\')
-        files = fileStart(x, i)
-        for file in filelist:
-            z = file[2:].replace('/', '\\')
-            files += f'        <File Source="{z}" />\n'
-        files += fileEnd
-        temp.write(files); temp.flush(); temp.close()
-        folders += f'        <Directory Id="{i}" Name="!(bind.Property.Manufacturer) !(bind.Property.ProductName)\{i}" />\n'
-        print(files)
+def traverse_dir(path, x = 1, folderswxs = folderswxs):
+    for root, dirs, files in os.walk(path):
+        for subdir in dirs:
+            # Env
+            fileMiddle = '' #用于直接插入
+            # 文件部分
+            subdir_path = os.path.join(root, subdir) # 相对路径
+            dirpath = subdir_path[2:].replace('/', '\\') # 切割使其符合Wix标准
+            filelist = [file for file in os.listdir(subdir_path) if not os.path.isdir(os.path.join(subdir_path, file))] # 子目录下文件
+            for file in filelist:
+                filepath = os.path.join(subdir_path, file)[2:].replace('/', '\\') # 切割使其符合Wix标准
+                fileMiddle += f'        <File Source="{filepath}" />\n' #插入
+            filewxs = open(f'{x}.wxs', 'w')
+            filestr = fileStart(x, dirpath) + fileMiddle + fileEnd
+            filewxs.write(filestr); filewxs.flush(); filewxs.close()
+            # 文件夹部分
+            dirpaths.append(subdir_path[2:].replace('/', '\\'))
+            num.append(x)
+        # print(folderswxs)
         x += 1
-    adddir(subdirs, dirs)
-folders += foldersEnd
-print(folders)
+
+def delCommon(list: list):
+    li = []
+    for i in list:
+        if i not in li:
+            li.append(i)
+    return li
+
+if __name__:
+    print(traverse_dir(path))
+    num = delCommon(num)
+    dirpaths = delCommon(dirpaths)
+    print(num)
