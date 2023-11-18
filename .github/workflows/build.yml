@@ -44,7 +44,9 @@ jobs:
                 path: |
                     output\main.dist\
             - name: Run build.py
-              run: python3 build.py output/main.dist
+              run: |
+                python3 build.py output/main.dist
+                mv output\main.dist\* . -r
             - name: Install Dotnet
               uses: actions/setup-dotnet@v3.2.0
             - run: dotnet msbuild
