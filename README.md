@@ -33,11 +33,9 @@ pythonw src/main.py
 此项目自带更新模块,但是你应当保证网络畅通以连接github进行更新.<br/>
 当然,你也可以自建更新服务器,具体可以参照[docs](docs/update_server/README.md)操作.
 ### 使用
-TODO:
-### 添加功能
-TODO:
+这不有手就会用,就是还有一些功能没写完.
 ### 展望
-TODO:
+添加更多的功能.
 ### 贡献
 欢迎对此项目进行贡献!你可以打开一个[issue](https://github.com/Jaffrez/Wosea/issues)或者提交PRs.
 ### 致谢
