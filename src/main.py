@@ -5,6 +5,7 @@ import numGen
 import closeEasiNote
 
 
+# 关于窗口
 class aboutDialog(QtWidgets.QDialog):
 
     def __init__(self):
@@ -21,11 +22,13 @@ class aboutDialog(QtWidgets.QDialog):
         self.setLayout(self.layout)
 
 
+# 显示about页面
 def showAbout():
     dialog = aboutDialog()
     dialog.exec()
 
 
+# 这是主窗口
 class MainWindow(QtWidgets.QMainWindow):
 
     def exit(self):
