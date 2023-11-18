@@ -37,9 +37,22 @@ jobs:
                 cp main.dist\main.exe output\main.dist
                 cp update.dist\update.exe output\main.dist
 
+            # - name: Upload Artifact
+            #   uses: actions/upload-artifact@v3
+            #   with:
+            #     name: build
+            #     path: |
+            #         output\main.dist\
+            - name: Run build.py
+              run: |
+                python3 build.py output/main.dist
+                cp output\main.dist\* . -r
+            - name: Install Dotnet
+              uses: actions/setup-dotnet@v3.2.0
+            - run: dotnet msbuild
             - name: Upload Artifact
               uses: actions/upload-artifact@v3
               with:
-                name: build
+                name: Wosea.msi
                 path: |
-                    output\main.dist\
+                    bin\Debug\zh-CN\Wosea.msi
