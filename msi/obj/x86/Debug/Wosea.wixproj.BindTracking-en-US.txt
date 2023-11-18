@@ -1,4 +1,0 @@
-BuiltPdbOutput	D:\wixrepo\Wosea\obj\x86\Debug\en-US\Wosea.wixpdb
-BuiltTargetOutput	D:\wixrepo\Wosea\obj\x86\Debug\en-US\Wosea.msi
-Input	e\main.exe
-Intermediate	D:\wixrepo\Wosea\obj\x86\Debug\en-US\#cab1.cab
