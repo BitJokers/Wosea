@@ -1,0 +1,6 @@
+D:\wixrepo\Bundle\obj\x86\Debug\Bundle.wixproj.CoreCompileInputs.cache
+D:\wixrepo\Bundle\bin\x86\Debug\Bundle.exe
+D:\wixrepo\Bundle\bin\x86\Debug\Bundle.wixpdb
+D:\wixrepo\Bundle\obj\x86\Debug\Bundle.exe
+D:\wixrepo\Bundle\obj\x86\Debug\Bundle.wixpdb
+D:\wixrepo\Bundle\obj\x86\Debug\Bundle.wixproj.BindTracking.txt

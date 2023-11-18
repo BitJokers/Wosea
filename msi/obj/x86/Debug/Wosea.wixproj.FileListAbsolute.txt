@@ -1,0 +1,11 @@
+D:\wixrepo\Wosea\obj\x86\Debug\Wosea.wixproj.CoreCompileInputs.cache
+D:\wixrepo\Wosea\bin\x86\Debug\en-US\Wosea.msi
+D:\wixrepo\Wosea\bin\x86\Debug\zh-CN\Wosea.msi
+D:\wixrepo\Wosea\bin\x86\Debug\en-US\Wosea.wixpdb
+D:\wixrepo\Wosea\bin\x86\Debug\zh-CN\Wosea.wixpdb
+D:\wixrepo\Wosea\obj\x86\Debug\en-US\Wosea.msi
+D:\wixrepo\Wosea\obj\x86\Debug\en-US\Wosea.wixpdb
+D:\wixrepo\Wosea\obj\x86\Debug\zh-CN\Wosea.msi
+D:\wixrepo\Wosea\obj\x86\Debug\zh-CN\Wosea.wixpdb
+D:\wixrepo\Wosea\obj\x86\Debug\Wosea.wixproj.BindTracking-en-US.txt
+D:\wixrepo\Wosea\obj\x86\Debug\Wosea.wixproj.BindTracking-zh-CN.txt

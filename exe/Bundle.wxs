@@ -1,0 +1,12 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:bal="http://wixtoolset.org/schemas/v4/wxs/bal">
+  <Bundle Name="Wosea" Manufacturer="Jaffrez and Bliod" Version="1.0.0.1" UpgradeCode="b62078cb-8244-47c6-8e1b-c7131bdeace7">
+    <BootstrapperApplication>
+      <bal:WixStandardBootstrapperApplication LicenseUrl="https://www.example.com/license" Theme="hyperlinkLicense" />
+    </BootstrapperApplication>
+
+    <Chain>
+      <MsiPackage Compressed="yes" SourceFile="..\msi\bin\x86\Debug\zh-CN\Wosea.msi" />
+    </Chain>
+
+  </Bundle>
+</Wix>
