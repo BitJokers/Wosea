@@ -1,3 +1,12 @@
+'''
+Author: Jaffrez Jaffrez@outlook.com
+Date: 2023-11-14 12:38:41
+LastEditors: Jaffrez Jaffrez@outlook.com
+LastEditTime: 2023-11-19 15:23:52
+FilePath: /Wosea/src/main.py
+Description:
+Copyright (c) 2023 by Jaffrez, All Rights Reserved.
+'''
 from PySide6 import QtGui, QtWidgets
 import sys
 from mainWindow import Ui_MainWindow

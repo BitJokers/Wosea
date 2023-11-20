@@ -1,3 +1,13 @@
+'''
+Author: Jaffrez Jaffrez@outlook.com
+Date: 2023-11-16 22:44:09
+LastEditors: Jaffrez Jaffrez@outlook.com
+LastEditTime: 2023-11-19 15:24:07
+FilePath: /Wosea/src/numGen.py
+Description: 学号生成模块
+Copyright (c) 2023 by Jaffrez, All Rights Reserved.
+'''
+
 from PySide6 import QtCore, QtWidgets, QtGui
 import random
 
