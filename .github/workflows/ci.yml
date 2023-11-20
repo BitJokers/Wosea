@@ -1,14 +1,11 @@
 name: CI
 
 on:
-    workflow_dispatch:
-      inputs:
-        logLevel:
-          description: 'Log level'
-          required: true
-          default: 'warning'
-        tags:
-          description: 'Test scenario tags'
+    push:
+      branches:
+        - master
+      tags:
+        - "v**"
 
 jobs:
     build:
@@ -17,7 +14,7 @@ jobs:
         steps:
             - uses: actions/checkout@v4.1.1
               with:
-                  ref: 'dev'
+                  ref: 'master'
 
             - name: Setup Python
               uses: actions/setup-python@v4.7.1
@@ -37,3 +34,6 @@ jobs:
 
             - name: GH Release
               uses: softprops/action-gh-release@v0.1.15
+              with:
+                body_path: changes.txt
+                files: bin\Debug\zh-CN\Wosea.msi
