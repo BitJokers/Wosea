@@ -39,6 +39,7 @@ def showAbout():
 
 # 这是主窗口
 class MainWindow(QtWidgets.QMainWindow):
+    flag = False
 
     def exit(self):
         self.destroy()
@@ -50,11 +51,16 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        self.ui.genNumButton.clicked.connect(numGen.start)
+        self.ui.genNumButton.clicked.connect(self.start_numGen)
         self.ui.closeButton.clicked.connect(self.close)
         self.ui.closeSeewoNoteButton.clicked.\
             connect(closeEasiNote.closeEasiNote)
         self.ui.aboutButton.clicked.connect(showAbout)
+
+    def start_numGen(self):
+        if not self.flag:
+            numGen.start()
+            self.flag = True
 
 
 if __name__ == "__main__":
